@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from flask import ctx
-
 from .forms import RegionForm
 from .models import Region
 
@@ -35,3 +34,4 @@ def contact_view(request):
         'form': form,
     }
     return render(request, 'region.html', ctx)
+

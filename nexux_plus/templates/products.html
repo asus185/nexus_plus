@@ -20,28 +20,21 @@
                                     <i class="lni-target"></i>
                                     <div class="select">
                                         <select>
-                                            <option value="none">All Locations</option>
-                                            <option value="none">New York</option>
-                                            <option value="none">California</option>
-                                            <option value="none">Washington</option>
-                                            <option value="none">Birmingham</option>
-                                            <option value="none">Chicago</option>
-                                            <option value="none">Phoenix</option>
+                                            <option value="">Locations</option>
+                                            {% for loc in reg %}
+                                                <option value="{{ loc.id }}">{{ loc.name }}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
+                                    <i class="lni-target"></i>
                                 </div>
                                 <div class="form-group inputwithicon">
-                                    <i class="lni-menu"></i>
                                     <div class="select">
                                         <select>
-                                            <option value="none">Select Categories</option>
-                                            <option value="none">Mobiles</option>
-                                            <option value="none">Electronics</option>
-                                            <option value="none">Training</option>
-                                            <option value="none">Real Estate</option>
-                                            <option value="none">Services</option>
-                                            <option value="none">Training</option>
-                                            <option value="none">Vehicles</option>
+                                            <option value="">Select Category</option>
+                                            {% for ctg in categories %}
+                                                <option value="{{ ctg.id }}">{{ ctg.name }}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </div>
@@ -75,54 +68,23 @@
                     <div class="widget categories">
                         <h4 class="widget-title">All Categories</h4>
                         <ul class="categories-list">
-                            <li>
-                                <a href="#">
-                                    <i class="lni-dinner"></i>
-                                    Hotel & Travels <span class="category-counter">(5)</span>
-                                </a>
-                            </li>
+                            {% for ctg in categories %}
+
                             <li>
                                 <a href="#">
                                     <i class="lni-control-panel"></i>
-                                    Services <span class="category-counter">(8)</span>
+                                    {{ ctg.name }} <span class="{{ctx.id}}"></span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-github"></i>
-                                    Pets <span class="category-counter">(2)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-coffee-cup"></i>
-                                    Restaurants <span class="category-counter">(3)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-home"></i>
-                                    Real Estate <span class="category-counter">(4)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-pencil"></i>
-                                    Jobs <span class="category-counter">(5)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-display"></i>
-                                    Electronics <span class="category-counter">(9)</span>
-                                </a>
-                            </li>
+
+
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="widget">
                         <h4 class="widget-title">Advertisement</h4>
                         <div class="add-box">
-                            <a href="#"><img class="img-fluid" src="/images/{{product.image.0.image}}" alt=""></a>                        </div>
+                            <a href="#"><img class="img-fluid" src="/images/{{ product.main_image.0.image }}" alt=""></a>
                     </div>
                 </aside>
             </div>
@@ -172,7 +134,8 @@
                                                 <span class="bg-green"><i class="lni-heart"></i></span>
                                                 <span><i class="lni-bookmark"></i></span>
                                             </div>
-                                            <a href="#"><img class="img-fluid" src="/images/{{product.image.0.image}}" alt=""></a>
+                                            <a href="#"><img class="img-fluid" src="/images/{{ product.main_image.0.image }}" alt="">
+</a>
                                         </figure>
                                         <div class="feature-content">
                                             <div class="product">
@@ -192,7 +155,7 @@
                                                     <a href="#"><i class="lni-tag"></i> {{product.brand}}</a>
                                                     </span>
                                             </div>
-                                            <p class="dsc">{{product.discription}}</p>
+                                            <p class="dsc">{{product.description}}</p>
                                             <div class="listing-bottom">
                                                 <h3 class="price float-left">{{product.price}}</h3>
                                                 <a href="ads-details.html" class="btn btn-common float-right">View
@@ -217,8 +180,7 @@
                                                 <span class="bg-green"><i class="lni-heart"></i></span>
                                                 <span><i class="lni-bookmark"></i></span>
                                             </div>
-                                            <a href="#"><img class="img-fluid" src="/images/{{product.image.0.image}}" alt=""></a>
-                                                             alt=""></a>
+                                            <a href="#"><img class="img-fluid" src="/images/{{ product.main_image.0.image }}" alt=""></a>
                                         </figure>
                                         <div class="feature-content">
                                             <div class="product">
@@ -233,7 +195,7 @@
                                                 <a href="#"><i class="lni-map-marker"></i> {{product.location}}</a>
                                                 </span>
                                                 <span>
-                                                <a href="#"><i class="lni-tag"></i>{{product.brand}}</a>
+                                                <a href="#"><i class="lni-tag"></i>{{product.Brand}}</a>
                                                 </span>
                                             </div>
                                             <p class="dsc">{{product.description}}</p>

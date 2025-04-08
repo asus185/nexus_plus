@@ -1,57 +1,52 @@
 {% extends 'base.html' %}
 {% block header %}
 <div id="hero-area">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-9 col-xs-12 text-center">
-                    <div class="contents">
-                        <h1 class="head-title">Welcome to The Largest <span class="year">Marketplace</span></h1>
-                        <p>Buy and sell everything from used cars to mobile phones and computers, or search for
-                            property, jobs and more</p>
-                        <div class="search-bar">
-                            <div class="search-inner">
-                                <form class="search-form">
-                                    <div class="form-group">
-                                        <input type="text" name="customword" class="form-control"
-                                               placeholder="What are you looking for?">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-9 col-xs-12 text-center">
+                <div class="contents">
+                    <h1 class="head-title">Welcome to The Largest <span class="year">Marketplace</span></h1>
+                    <p>Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
+                    <div class="search-bar">
+                        <div class="search-inner">
+                            <form class="search-form">
+                                <div class="form-group">
+                                    <input type="text" name="customword" class="form-control" placeholder="What are you looking for?">
+                                </div>
+                                <div class="form-group inputwithicon">
+                                    <div class="select">
+                                        <select>
+                                            <option value="">Locations</option>
+                                            {% for loc in reg %}
+                                                <option value="{{ loc.id }}">{{ loc.name }}</option>
+                                            {% endfor %}
+                                        </select>
                                     </div>
-                                    <div class="form-group inputwithicon">
-                                        <div class="select">
-                                            <select>
-                                                <option value="none">Locations</option>
-                                                <option value="none">New York</option>
-                                                <option value="none">California</option>
-                                                <option value="none">Washington</option>
-                                                <option value="none">Birmingham</option>
-                                                <option value="none">Chicago</option>
-                                                <option value="none">Phoenix</option>
-                                            </select>
-                                        </div>
-                                        <i class="lni-target"></i>
+                                    <i class="lni-target"></i>
+                                </div>
+                                <div class="form-group inputwithicon">
+                                    <div class="select">
+                                        <select>
+                                            <option value="">Select Category</option>
+                                            {% for ctg in categories %}
+                                                <option value="{{ ctg.id }}">{{ ctg.name }}</option>
+                                            {% endfor %}
+                                        </select>
                                     </div>
-                                    <div class="form-group inputwithicon">
-                                        <div class="select">
-                                            <select>
-                                                <option value="none">Select Catagory</option>
-                                                {% for ctg in categories %}
-                                                    <option value="none">{{ ctg.name }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        <i class="lni-menu"></i>
-                                    </div>
-                                    <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now
-                                    </button>
-                                </form>
-                            </div>
+                                    <i class="lni-menu"></i>
+                                </div>
+                                <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock header %}
+
 {% block content %}
 <section id="categories">
 <div class="container">
@@ -77,8 +72,7 @@
               {% endfor %}
 </section>
 
-+ {{a}}
-+ {{b}}
+
 <section class="featured section-padding">
     <div class="container">
         <h1 class="section-title">Latest Products</h1>
@@ -132,7 +126,7 @@
                     <div class="item">
                         <div class="product-item">
                             <div class="carousel-thumb">
-                                <img class="img-fluid" src="/images/{{ product.main_image.0.image }}"" alt="">
+                                <img class="img-fluid" src="/images/{{ product.main_image.0.image }}" alt="">
                                 <div class="overlay">
                                     <div>
                                         <a class="btn btn-common" href="ads-details.html">View Details</a>

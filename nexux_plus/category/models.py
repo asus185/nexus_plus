@@ -18,7 +18,6 @@ class Region (models.Model):
 
 class Brand (models.Model):
     name = models.CharField(max_length=30, blank=True, null=True)
-
     def __str__(self):
         return self.name
 

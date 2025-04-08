@@ -87,6 +87,9 @@ DATABASES = {
         'PASSWORD': 'mypassword',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+        'TEST': {
+            'MIRROR': 'default',
+        },
     }
 }
 
@@ -133,7 +136,9 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'images')
-
+TEST = {
+    'NAME': 'your_test_database_name',
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
